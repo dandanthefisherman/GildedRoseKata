@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata;
+﻿using GildedRose.Domain.Entities;
+
+namespace GildedRoseKata;
 
 public class GildedRose
 {

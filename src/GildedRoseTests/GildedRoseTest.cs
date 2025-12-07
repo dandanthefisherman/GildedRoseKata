@@ -1,4 +1,5 @@
-﻿using GildedRoseKata;
+﻿using GildedRose.Domain.Entities;
+using GildedRoseKata;
 
 namespace GildedRoseTests;
 
@@ -24,7 +25,7 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
+        var app = new GildedRoseKata.GildedRose(items);
 
         app.UpdateQuality();
 
@@ -52,7 +53,7 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
+        var app = new GildedRoseKata.GildedRose(items);
 
         app.UpdateQuality();
 
@@ -79,7 +80,7 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
+        var app = new GildedRoseKata.GildedRose(items);
 
         app.UpdateQuality();
 
@@ -111,7 +112,7 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
+        var app = new GildedRoseKata.GildedRose(items);
 
         app.UpdateQuality();
 
@@ -138,7 +139,7 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
+        var app = new GildedRoseKata.GildedRose(items);
 
         app.UpdateQuality();
 
@@ -158,7 +159,7 @@ public class GildedRoseTests
             new Item { Name = "Conjured Mana Cake", SellIn = 15, Quality = 20 }
         };
 
-        var app = new GildedRose(items);
+        var app = new GildedRoseKata.GildedRose(items);
 
         app.UpdateQuality();
 
