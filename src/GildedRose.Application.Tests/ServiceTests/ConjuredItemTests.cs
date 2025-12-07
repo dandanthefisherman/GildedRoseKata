@@ -1,10 +1,13 @@
-﻿using GildedRose.Application.Services;
+﻿using GildedRose.Application.Interfaces;
+using GildedRose.Application.Tests.TestFixtures;
 using GildedRose.Domain.Entities;
 
 namespace GildedRose.Application.Tests.ServiceTests;
 
-public class ConjuredItemTests
+public class ConjuredItemTests(ItemUpdaterServiceTestFixture fixture) : IClassFixture<ItemUpdaterServiceTestFixture>
+
 {
+    private readonly IItemUpdaterService _itemUpdater = fixture.ItemUpdater;
     public static IEnumerable<object[]> ConjuredData =>
         new List<object[]>
         {
@@ -24,8 +27,7 @@ public class ConjuredItemTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = sellIn, Quality = quality } };
-        var updater = new ItemUpdaterService();
-        updater.Update(items);
+        _itemUpdater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
         Assert.Equal(expectedQuality, items[0].Quality);

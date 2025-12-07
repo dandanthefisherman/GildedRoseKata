@@ -1,10 +1,13 @@
-﻿using GildedRose.Application.Services;
+﻿using GildedRose.Application.Interfaces;
+using GildedRose.Application.Services;
+using GildedRose.Application.Tests.TestFixtures;
 using GildedRose.Domain.Entities;
 
 namespace GildedRose.Application.Tests.ServiceTests;
 
-public class SulfurasItemTests
+public class SulfurasItemTests(ItemUpdaterServiceTestFixture fixture) : IClassFixture<ItemUpdaterServiceTestFixture>
 {
+    private readonly IItemUpdaterService _itemUpdater = fixture.ItemUpdater;
     public static IEnumerable<object[]> SulfurasData =>
         new List<object[]>
         {
@@ -24,8 +27,7 @@ public class SulfurasItemTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = sellIn, Quality = quality } };
-        var updater = new ItemUpdaterService();
-        updater.Update(items);
+        _itemUpdater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
         Assert.Equal(expectedQuality, items[0].Quality);
