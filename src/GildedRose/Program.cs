@@ -1,4 +1,5 @@
-﻿using GildedRose.Domain.Entities;
+﻿using GildedRose.Application.Services;
+using GildedRose.Domain.Entities;
 
 namespace GildedRoseKata;
 
@@ -39,8 +40,8 @@ public class Program
             new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 13 }
         ];
 
-        var app = new GildedRose(Items);
-
+        var updater = new ItemUpdater();
+        
         for (var i = 0; i < 31; i++)
         {
             Console.WriteLine("-------- day " + i + " --------");
@@ -50,7 +51,7 @@ public class Program
                 System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
             }
             Console.WriteLine("");
-            app.UpdateQuality();
+            updater.Update(Items);
         }
     }
 }
