@@ -1,8 +1,7 @@
 ﻿using GildedRose.Application.Services;
 using GildedRose.Domain.Entities;
-using GildedRoseKata;
 
-namespace GildedRoseTests;
+namespace GildedRose.Application.Tests.ServiceTests;
 
 public class GildedRoseTests
 {
