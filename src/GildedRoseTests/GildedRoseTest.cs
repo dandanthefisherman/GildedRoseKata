@@ -124,4 +124,28 @@ public class GildedRoseTests
         Assert.Equal(expectedSellIn, items[0].SellIn);
         Assert.Equal(expectedQuality, items[0].Quality);
     }
+    
+    [Theory]
+    [InlineData("Conjured Mana Cake", 5, 10, 4, 8)]  // degrade by 2
+    [InlineData("Conjured Mana Cake", 0, 10, -1, 6)] // degrade by 4 after expiry
+    [InlineData("Conjured Mana Cake", 1, 1, 0, 0)]   // cannot go below 0
+    [InlineData("Conjured Mana Cake", -1, 3, -2, 0)] // expired cannot go below 0
+    public void UpdateQuality_Updates_Conjured_Items_Correctly(
+        string name,
+        int sellIn,
+        int quality,
+        int expectedSellIn,
+        int expectedQuality)
+    {
+        var items = new List<Item>
+        {
+            new Item { Name = name, SellIn = sellIn, Quality = quality }
+        };
+        var app = new GildedRose(items);
+
+        app.UpdateQuality();
+
+        Assert.Equal(expectedSellIn, items[0].SellIn);
+        Assert.Equal(expectedQuality, items[0].Quality);
+    }
 }
