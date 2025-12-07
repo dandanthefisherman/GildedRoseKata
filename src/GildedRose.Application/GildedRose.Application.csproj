@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\GildedRose.Domain\GildedRose.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
