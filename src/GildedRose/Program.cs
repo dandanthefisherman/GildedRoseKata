@@ -1,5 +1,8 @@
-﻿using GildedRose.Application.Services;
+﻿using GildedRose.Application.Extensions;
+using GildedRose.Application.Interfaces;
+using GildedRose.Application.Services;
 using GildedRose.Domain.Entities;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GildedRoseKata;
 
@@ -7,6 +10,14 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        var services = new ServiceCollection();
+        
+        services.AddGildedRoseApplicationServices();
+
+        var provider = services.BuildServiceProvider();
+        
+        var updater = provider.GetRequiredService<IItemUpdaterService>();
+        
         Console.WriteLine("OMGHAI!");
 
         List<Item> Items =
@@ -39,8 +50,6 @@ public class Program
             
             new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 13 }
         ];
-
-        var updater = new ItemUpdaterService();
         
         for (var i = 0; i < 31; i++)
         {

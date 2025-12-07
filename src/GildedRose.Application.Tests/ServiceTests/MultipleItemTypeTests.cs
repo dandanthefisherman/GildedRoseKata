@@ -1,10 +1,14 @@
-﻿using GildedRose.Application.Services;
+﻿using GildedRose.Application.Interfaces;
+using GildedRose.Application.Services;
+using GildedRose.Application.Tests.TestFixtures;
 using GildedRose.Domain.Entities;
 
 namespace GildedRose.Application.Tests.ServiceTests;
 
-public class MultipleItemTypeTests
+public class MultipleItemTypeTests(ItemUpdaterServiceTestFixture fixture) : IClassFixture<ItemUpdaterServiceTestFixture>
 {
+    private readonly IItemUpdaterService _itemUpdater = fixture.ItemUpdater;
+    
     [Fact(DisplayName = "Multiple items update correctly together")]
     public void ItemUpdaterService_Updates_Multiple_Item_Types_Correctly()
     {
@@ -17,8 +21,7 @@ public class MultipleItemTypeTests
             new Item { Name = "Conjured Mana Cake", SellIn = 15, Quality = 20 }
         };
 
-        var updater = new ItemUpdaterService();
-        updater.Update(items);
+        _itemUpdater.Update(items);
 
         // Standard item
         Assert.Equal(9, items[0].SellIn);

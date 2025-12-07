@@ -1,10 +1,11 @@
 ﻿using GildedRose.Application.Factories;
+using GildedRose.Application.Interfaces;
 using GildedRose.Domain.Contracts;
 using GildedRose.Domain.Entities;
 
 namespace GildedRose.Application.Services;
 
-public class ItemUpdaterService 
+internal class ItemUpdaterService : IItemUpdaterService
 {
     public void Update(List<Item> items)
     {
