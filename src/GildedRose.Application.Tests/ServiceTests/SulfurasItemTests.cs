@@ -24,7 +24,7 @@ public class SulfurasItemTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = sellIn, Quality = quality } };
-        var updater = new ItemUpdater();
+        var updater = new ItemUpdaterService();
         updater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);

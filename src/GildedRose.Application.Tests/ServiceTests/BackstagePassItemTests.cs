@@ -29,7 +29,7 @@ public class BackstagePassItemTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = quality } };
-        var updater = new ItemUpdater();
+        var updater = new ItemUpdaterService();
         updater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
