@@ -7,4 +7,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GildedRose.Application\GildedRose.Application.csproj" />
+    <ProjectReference Include="..\GildedRose.Domain\GildedRose.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

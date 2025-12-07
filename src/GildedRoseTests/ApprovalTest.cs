@@ -6,7 +6,7 @@ namespace GildedRoseTests;
 public class ApprovalTest
 {
     [Fact]
-    public Task ThirtyDays()
+    public Task RunProgram_ForThirtyDays_ProducesExpectedOutcome()
     {
         var fakeOutput = new StringBuilder();
         Console.SetOut(new StringWriter(fakeOutput));

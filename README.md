@@ -1,3 +1,39 @@
+# How I have refactored the gilded rose kata
+
+I firstly created feature branch as my base branch.
+
+All pull requests were pushed into that branch.
+
+All commits into every branch were gradual and safe. At no point did I commit code. that would not compile. You should be able to revert the last commit and the code will still compile.
+
+The first thing I did was to write some unit tests to verify that the existing legacy code works as expected. 
+
+I then wrote some tests for the conjured items, knowing they would fail. I then updated the existing legacy code so that the updater would correctly update conjured items, after which the unit tests I wrote passed.
+
+At this point i was not happy with the way the unit tests were displaying in the test runner, so I refactored then to include a test description to be displayed in th test runner. I also added some more unit tests to verify that the item updater can handle multiple different item types all at once. I also renamed the approval test.
+
+Next, I added a domain project and an application project. I wanted the domain entities and contracts to live in this project and a services that update items to live in the application project. This pattern a clean architecture/ddd pattern. As you can see, Nothing is referenced by the domain project. the application project references the domain project and the console app references both the application and domain, sort of mini onion architecture.
+
+Next, I transferred the gilded rose logic into those two projects, creating a service to be accessed by the console app.
+
+I then updated the tests and console app to use the new service. I then deleted the old legacy code.
+
+The unit tests confirmed that the refactor was successful.
+
+I then create an application test project and moved the unit tests to this new project. The test file was quite large, so I split the unit tests up into smaller test files, based on the item type.
+
+I then added an interface to the item updater service and made sure the service was only accessible though the interface. I updated the tests and console app to use the interface. The unit tests verified that the refactor worked.
+
+Lastly, I tidied up the console app, pulling out some of the clutter in the program file.
+
+# What else would I have liked to do?
+
+You can see in the application folder the Itemupdatefactory class. It contains magic strings which im not comfortable with! Ideally, I would have liked to change the item.cs class to include an enum of ItemType, which would have had all the different possible item types. It states in the read me that this should not be changed. I can talk you through what else I considered to get rid of the magic strings should we have chance to speak again! I was unsure how far to go with this exercise and could have kept refactoring forever, so i made the decision to leave it as it is now.
+
+Cheers, Dan
+
+
+
 # Gilded Rose Refactoring Kata
 
 ## How to use this Kata
