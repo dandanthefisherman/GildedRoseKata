@@ -1,4 +1,6 @@
-﻿using GildedRoseKata;
+﻿using GildedRose.Application.Services;
+using GildedRose.Domain.Entities;
+using GildedRoseKata;
 
 namespace GildedRoseTests;
 
@@ -24,9 +26,8 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
-
-        app.UpdateQuality();
+        var updater = new ItemUpdater();
+        updater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
         Assert.Equal(expectedQuality, items[0].Quality);
@@ -52,9 +53,8 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
-
-        app.UpdateQuality();
+        var updater = new ItemUpdater();
+        updater.Update(items);;
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
         Assert.Equal(expectedQuality, items[0].Quality);
@@ -79,9 +79,8 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
-
-        app.UpdateQuality();
+        var updater = new ItemUpdater();
+        updater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
         Assert.Equal(expectedQuality, items[0].Quality);
@@ -111,9 +110,8 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
-
-        app.UpdateQuality();
+        var updater = new ItemUpdater();
+        updater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
         Assert.Equal(expectedQuality, items[0].Quality);
@@ -138,9 +136,8 @@ public class GildedRoseTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = sellIn, Quality = quality } };
-        var app = new GildedRose(items);
-
-        app.UpdateQuality();
+        var updater = new ItemUpdater();
+        updater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
         Assert.Equal(expectedQuality, items[0].Quality);
@@ -158,9 +155,8 @@ public class GildedRoseTests
             new Item { Name = "Conjured Mana Cake", SellIn = 15, Quality = 20 }
         };
 
-        var app = new GildedRose(items);
-
-        app.UpdateQuality();
+        var updater = new ItemUpdater();
+        updater.Update(items);
 
         // Standard item
         Assert.Equal(9, items[0].SellIn);
