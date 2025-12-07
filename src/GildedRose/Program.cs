@@ -40,7 +40,7 @@ public class Program
             new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 13 }
         ];
 
-        var updater = new ItemUpdater();
+        var updater = new ItemUpdaterService();
         
         for (var i = 0; i < 31; i++)
         {

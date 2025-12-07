@@ -17,7 +17,7 @@ public class MultipleItemTypeTests
             new Item { Name = "Conjured Mana Cake", SellIn = 15, Quality = 20 }
         };
 
-        var updater = new ItemUpdater();
+        var updater = new ItemUpdaterService();
         updater.Update(items);
 
         // Standard item

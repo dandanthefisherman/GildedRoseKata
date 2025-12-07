@@ -25,7 +25,7 @@ public class AgedBrieItemTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = sellIn, Quality = quality } };
-        var updater = new ItemUpdater();
+        var updater = new ItemUpdaterService();
         updater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);

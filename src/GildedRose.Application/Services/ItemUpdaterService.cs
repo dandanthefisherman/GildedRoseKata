@@ -4,7 +4,7 @@ using GildedRose.Domain.Entities;
 
 namespace GildedRose.Application.Services;
 
-public class ItemUpdater 
+public class ItemUpdaterService 
 {
     public void Update(List<Item> items)
     {

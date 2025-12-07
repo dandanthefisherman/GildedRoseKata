@@ -25,7 +25,7 @@ public class StandardItemTests
         string _)
     {
         var items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = sellIn, Quality = quality } };
-        var updater = new ItemUpdater();
+        var updater = new ItemUpdaterService();
         updater.Update(items);
 
         Assert.Equal(expectedSellIn, items[0].SellIn);
