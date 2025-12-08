@@ -4,13 +4,13 @@ I firstly created feature branch as my base branch.
 
 All pull requests were pushed into that branch.
 
-All commits into every branch were gradual and safe. At no point did I commit code. that would not compile. You should be able to revert the last commit and the code will still compile.
+All commits into every branch were gradual and safe. At no point did I commit code that would not compile. You should be able to revert the last commit and the code will still compile.
 
 The first thing I did was to write some unit tests to verify that the existing legacy code works as expected. 
 
 I then wrote some tests for the conjured items, knowing they would fail. I then updated the existing legacy code so that the updater would correctly update conjured items, after which the unit tests I wrote passed.
 
-At this point i was not happy with the way the unit tests were displaying in the test runner, so I refactored then to include a test description to be displayed in th test runner. I also added some more unit tests to verify that the item updater can handle multiple different item types all at once. I also renamed the approval test.
+At this point i was not happy with the way the unit tests were displaying in the test runner, so I refactored then to include a test description to be displayed in the test runner. I also added some more unit tests to verify that the item updater can handle multiple different item types all at once. I also renamed the approval test.
 
 Next, I added a domain project and an application project. I wanted the domain entities and contracts to live in this project and a services that update items to live in the application project. This pattern a clean architecture/ddd pattern. As you can see, Nothing is referenced by the domain project. the application project references the domain project and the console app references both the application and domain, sort of mini onion architecture.
 
