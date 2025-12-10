@@ -2,7 +2,7 @@
 using GildedRose.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GildedRose.Application.Extensions;
+namespace GildedRose.Extensions;
 
 public static class ServiceCollectionExtensions
 {

@@ -1,6 +1,6 @@
-﻿using GildedRose.Application.Extensions;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using GildedRose.Application.Interfaces;
+using GildedRose.Extensions;
 
 
 namespace GildedRose;
