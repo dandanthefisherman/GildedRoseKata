@@ -26,6 +26,8 @@ I then added an interface to the item updater service and made sure the service 
 
 Lastly, I tidied up the console app, pulling out some of the clutter in the program file.
 
+Then after sleeping on it, I decided to move the service collections extension file into the console app, in line with clean architecture practices.
+
 # What else would I have liked to do?
 
 You can see in the application folder the Itemupdatefactory class. It contains magic strings which im not comfortable with! Ideally, I would have liked to change the item.cs class to include an enum of ItemType, which would have had all the different possible item types. It states in the read me that this should not be changed. I can talk you through what else I considered to get rid of the magic strings should we have chance to speak again! I was unsure how far to go with this exercise and could have kept refactoring forever, so i made the decision to leave it as it is now.
