@@ -5,7 +5,7 @@ using GildedRose.Domain.Entities;
 
 namespace GildedRose.Application.Services;
 
-internal class ItemUpdaterService : IItemUpdaterService
+public class ItemUpdaterService : IItemUpdaterService
 {
     public void Update(List<Item> items)
     {
